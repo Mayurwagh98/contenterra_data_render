@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.main_div {
+    width: 90%;
+    margin: auto;
+}
+
+.main_div>div {
+    border: 1px solid gray;
+    margin: 1rem;
+    padding: 0.7rem;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+}
+
+h1 {
+    font-size: 1.3rem;
+    display: inline;
+    margin: 1rem 0.5rem 0 0;
+    font-family: "Century Gothic";
+}
+
+p {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin: 1.2rem 0 0 0;
+    font-size: 1.1rem;
+    font-weight: 350;
+}
+
+.title_div, .url_div, .score_div, .selftext_html_div {
+    display: flex;
+    align-items: flex-start;
+}
+
+@media screen and (max-width:838px) {
+    .main_div {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:420px) {
+    .main_div {
+        width: 100%;
+    }
+}
