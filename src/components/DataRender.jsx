@@ -4,11 +4,13 @@ import "./DataRender.css";
 import Loader from "./Loader";
 import ReactPaginate from "react-paginate";
 import { RightOutlined, LeftOutlined } from "@ant-design/icons";
+import ErrorComponent from "./ErrorComponent";
 
 const DataRender = () => {
   let [data, seatData] = useState([]);
   let [loading, setLoading] = useState(false);
   const [currPage, setCurrPage] = useState(0);
+  let [errorhandler, setErrorHandler] = useState(false);
 
   let fetchData = async () => {
     setLoading(true);
@@ -19,14 +21,12 @@ const DataRender = () => {
         },
       } = await axios.get(`https://www.reddit.com/r/reactjs.json`);
 
-      console.log(children);
-
       seatData(children);
 
       setLoading(false);
     } catch (error) {
-      console.log(error);
       setLoading(false);
+      setErrorHandler(true);
     }
   };
 
@@ -43,6 +43,9 @@ const DataRender = () => {
   //setting here data.length because we want to show the pages as per the data available
   const pageCount = Math.ceil(data.length / perpage);
   const offset = currPage * perpage; //offset = 0, 10, 20......
+
+  if (errorhandler)
+    return <ErrorComponent message={"Error While Fetching the Data"} />;
 
   return loading ? (
     <Loader />
