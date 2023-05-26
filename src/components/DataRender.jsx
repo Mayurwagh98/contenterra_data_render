@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./DataRender.css";
+import Loader from "./Loader";
 
 const DataRender = () => {
   let [data, seatData] = useState([]);
+  let [loading, setLoading] = useState(false);
+  
 
   let fetchData = async () => {
+    setLoading(true);
     try {
       let {
         data: {
@@ -16,8 +20,11 @@ const DataRender = () => {
       console.log(children);
 
       seatData(children);
+
+      setLoading(false);
     } catch (error) {
       console.log(error);
+      setLoading(false);
     }
   };
 
@@ -25,7 +32,9 @@ const DataRender = () => {
     fetchData();
   }, []);
 
-  return (
+  return loading ? (
+    <Loader />
+  ) : (
     <div className="main_div">
       {data.map((item) => {
         return (
