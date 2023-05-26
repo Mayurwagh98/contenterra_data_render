@@ -2,10 +2,11 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 
-body{
-    background-color: rgb(39, 35, 35);
+body {
+    background-color: rgb(97, 89, 89);
 }
 
 .main_div {
@@ -31,7 +32,7 @@ h1 {
 
 p {
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    /* -webkit-line-clamp: 2; */
     -webkit-box-orient: vertical;
     overflow: hidden;
     margin: 1.2rem 0 0 0;
@@ -44,14 +45,82 @@ p {
     align-items: flex-start;
 }
 
+
+.pagination {
+    width: 85%;
+    margin: auto;
+    padding-bottom: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid red; */
+    list-style: none;
+    cursor: pointer;
+    overflow: scroll;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+.pagination a {
+    padding: 0.9rem;
+    /* border-radius: 5px; */
+    border: none;
+    color: #3C2A21;
+    font-weight: bold;
+    font-size: 17px;
+    background-color: #fff;
+    margin: 5px;
+    margin-top: 10px;
+    display: grid;
+    place-content: center;
+    /* border: 1px solid red; */
+    border-radius: 10px;
+    height: 10px;
+}
+
+.pagination__link {
+    font-weight: bold;
+}
+
+.pagination_link_active a {
+    color: #fff;
+    background-color: purple;
+
+}
+
+.pagination_link_disabled a {
+    color: rgb(198, 197, 202);
+    border: 1px solid rgb(198, 197, 202);
+
+}
+
 @media screen and (max-width:838px) {
     .main_div {
         width: 100%;
+    }
+
+    .pages_div {
+
+        /* display: block; */
+        margin: 0 0 0 2rem;
+        /* margin: auto; */
+
     }
 }
 
 @media screen and (max-width:420px) {
     .main_div {
         width: 100%;
+    }
+
+    .pages_div button {
+        padding: 0.6rem;
+        margin: 0 0.5rem 0.5rem 0.5rem;
+        border-radius: 1rem;
+        border: none;
+        background-color: #AA77FF;
+        color: white;
+        font-weight: 560;
+        font-size: 1rem;
     }
 }
